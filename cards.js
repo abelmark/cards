@@ -61,12 +61,10 @@ var cardColor = function() {
   $('li:contains("C")').css('background-image', 'url("club.svg")');
   $('li:contains("H")').css('background-image', 'url("heart.svg")');
 };
-  //Attempt to get cards to flip over when clicked on, failed as all the li components change
-  //How would I make it so it just does it to the li element I clicked on without
-  //setting up mousedown effects on each individual li?
+
 $('li').on('mousedown', function(){
-  $('li').css('background-image', 'url("backcard.svg")');
-  $('li').css('color', 'transparent');
+  $(this).css('background-image', 'url("backcard.svg")');
+  $(this).css('color', 'transparent');
 });
   //Resets to the normal card image on mouseup
 $('li').on('mouseup', function(){

@@ -3,7 +3,7 @@ function Card(r, s) {
   this.suit = s;
   this.toHTML = function() {
   return "<li class='card'>" + this.rank + "-" + this.suit + "</li>";
-  }
+  };
 }
 function Deck() {
   var thisDeck = this;
@@ -23,7 +23,7 @@ var rand, $rand;
 rand = Math.floor(Math.random() * m--);
 $('li:eq(' + m + ')').
   after($('li:eq(' + rand + ')')).
-  insertBefore($('li:eq(' + rand + ')'))
+  insertBefore($('li:eq(' + rand + ')'));
 if(m) {
   setTimeout(shuffle, 100, m);
   }
@@ -31,7 +31,8 @@ if(m) {
  //was not succesful at making the sort visualize as well as the shuffle. :(
 var sort = function(a) {
   var cardValue = ["A-", "2-", "3-", "4-", "5-", "6-", "7-", "8-", "9-", "10-", "J-", "Q-", "K-"];
-  for(var j = 0; j < cardValue.length; j++){
+  var cardLength = cardValue.length;
+  for(var j = 0; j < cardLength; j++){
     $('li').each(function() {
       if($(this).text() === cardValue[j] + a) {
         $(this).insertAfter($('li:last')).
@@ -65,9 +66,11 @@ var cardColor = function() {
 $('li').on('mousedown', function(){
   $(this).css('background-image', 'url("backcard.svg")');
   $(this).css('color', 'transparent');
+  $(this).addClass('no-hover');
 });
   //Resets to the normal card image on mouseup
 $('li').on('mouseup', function(){
   cardColor();
+  $('.card').removeClass('no-hover');
 });
 cardColor();

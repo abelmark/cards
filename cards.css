@@ -38,6 +38,9 @@ li {
 li:hover{
   opacity:.75;
 }
+.card.no-hover{
+  opacity:1;
+}
 .buttons {
   font-size: 10px;
   text-align: center;
